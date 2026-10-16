@@ -1,0 +1,33 @@
+{
+  "version": "0.10.0",
+  "features": [
+    "Docker-based k6 runner with host networking and allowlisted env file",
+    "k6 Docker image installer",
+    "root GNU Make command hub",
+    "nvm Node.js 22.16.0 auto-selection",
+    "fixed Cypress 16.2.0 auto-installation",
+    "API/Web locked npm installs",
+    "Playwright ffmpeg installer",
+    "local QA test environment templates"
+  ],
+  "validated": {
+    "qa_unit_tests": "49/49 PASS",
+    "mock_docker_end_to_end": "PASS (synthetic output, not real benchmark)",
+    "bash_syntax": "PASS",
+    "node_syntax": "PASS",
+    "make_dry_run": "PASS"
+  },
+  "not_validated": [
+    "real docker pull",
+    "real k6 HTTP performance profile",
+    "npm dependency installation in offline build environment",
+    "real PostgreSQL integration in this container"
+  ],
+  "constraints": [
+    "Only local 127.0.0.1 API",
+    "Only guarded vdr_qa_test PostgreSQL",
+    "Separate approval for heavy workloads",
+    "No Supabase mutation",
+    "Sandbox may be off for Chromium only with explicit local approval"
+  ]
+}

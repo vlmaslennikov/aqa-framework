@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "deny": [
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git merge:*)",
+      "Bash(git rebase:*)",
+      "Bash(git cherry-pick:*)",
+      "Bash(git revert:*)",
+      "Bash(git tag:*)",
+      "Bash(git reset:*)",
+      "Bash(gh pr create:*)",
+      "Bash(gh pr merge:*)",
+      "Read(./.env)",
+      "Read(./apps/api/.env)",
+      "Read(./apps/web/.env)",
+      "Read(**/.env)",
+      "Read(**/.env.local)",
+      "Read(**/.env.production)"
+    ]
+  }
+}

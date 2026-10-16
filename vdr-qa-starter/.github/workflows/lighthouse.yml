@@ -1,0 +1,55 @@
+# Copy the entire QA overlay into VDR monorepo as qa/ before enabling this workflow.
+# PUBLIC PAGES ONLY; no auth secrets and no public report upload.
+name: Lighthouse CI (public smoke)
+on:
+  workflow_dispatch:
+  # enable pull_request after copying QA overlay to ./qa and validating first run
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.19.0'
+      - name: Install web dependencies
+        working-directory: apps/web
+        run: npm install --no-audit --no-fund
+      - name: Build frontend
+        working-directory: apps/web
+        env:
+          VITE_API_URL: ${{ vars.QA_API_BASE_URL }}
+        run: npm run build
+      - name: Install QA dependencies (reuse runner Chrome)
+        working-directory: qa
+        env:
+          PUPPETEER_SKIP_DOWNLOAD: '1'
+        run: npm install --no-audit --no-fund
+      - name: Start preview and verify it is reachable
+        run: |
+          (cd apps/web && nohup npm run preview -- --host 127.0.0.1 --port 4173 > /tmp/vdr-preview.log 2>&1 &)
+          for i in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:4173/login -o /dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/vdr-preview.log
+          exit 1
+      - name: Run Lighthouse public routes
+        working-directory: qa
+        env:
+          LHCI_WEB_BASE_URL: http://127.0.0.1:4173
+          LHCI_RUNS: '3'
+          CHROME_PATH: /usr/bin/google-chrome
+          # Only when sandbox cannot be enabled in an isolated runner; explicit opt-in.
+          # LHCI_CHROME_NO_SANDBOX: '1'
+        run: npm run lighthouse:public
+      - name: Upload local reports (no temporary-public-storage)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-public-audit
+          path: |
+            qa/.lighthouseci/
+            qa/reports/lighthouse/
+          retention-days: 7

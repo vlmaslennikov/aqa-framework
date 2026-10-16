@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "esModuleInterop": true,
+    "types": [
+      "node"
+    ],
+    "skipLibCheck": true,
+    "noEmit": true,
+    "allowJs": true
+  },
+  "include": [
+    "playwright.config.ts",
+    "src/**/*.ts",
+    "tests/**/*.ts"
+  ]
+}

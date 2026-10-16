@@ -1,0 +1,13 @@
+{
+  "version": "0.8.0",
+  "validatedAt": "2026-10-16",
+  "localQaFrameworkTests": { "passed": 39, "failed": 0 },
+  "localDbGuardTests": { "passed": 5, "failed": 0 },
+  "pdfFixturePdfInfo": { "format": "PDF 1.4", "pages": 1, "verified": true },
+  "typescriptNewTestFiles": { "transpileSyntaxErrors": 0, "fullTypecheckExecuted": false },
+  "config": { "jsonParse": "pass", "yamlSyntax": "pass" },
+  "negativeGuard": { "status": "blocked_unconfigured_storage_e2e", "pass": true },
+  "newNestIntegrationTests": "not_executed_postgresql_not_available",
+  "newStorageE2E": "not_executed_disposable_supabase_unavailable",
+  "historicalUserResults": { "api": "9/9", "ui": "5/5", "nestjsIntegration": "7/7", "cypressComponent": "8/8", "knownDefects": "2_expected_failures", "lighthouseAuthenticated": "6_completed_audits" }
+}

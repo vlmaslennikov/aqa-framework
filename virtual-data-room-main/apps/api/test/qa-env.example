@@ -1,0 +1,11 @@
+# Copy into an untracked local .env.test (do NOT commit any real passwords or database URL)
+# To use: set -a; source test/.env.test; set +a
+# The safety guard allows only local vdr_qa_test database and matching URLs.
+DATABASE_URL=postgresql://qa:qa_local_only@127.0.0.1:54329/vdr_qa_test
+DIRECT_URL=postgresql://qa:qa_local_only@127.0.0.1:54329/vdr_qa_test
+QA_INTEGRATION_ACK=I_OWN_THIS_LOCAL_DB
+JWT_SECRET=qa_only_do_not_reuse_in_production_really_random_value
+SUPABASE_URL=https://storage.invalid
+SUPABASE_SERVICE_ROLE_KEY=qa-test-placeholder
+SUPABASE_BUCKET=qa-test
+CORS_ORIGIN=http://127.0.0.1:5173

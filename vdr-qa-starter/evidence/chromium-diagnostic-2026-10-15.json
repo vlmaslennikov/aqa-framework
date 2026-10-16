@@ -1,0 +1,19 @@
+{
+  "timestamp_utc": "2026-10-15T19:04:27.156486+00:00",
+  "browser_executable": "/mnt/data/chromium-extracted/pw-browsers/chromium-1243/chrome-linux64/chrome",
+  "local_browser_status": "PASS",
+  "remote_vdr_status": "BLOCKED_OR_UNREACHABLE",
+  "chrome_version": "Google Chrome for Testing 153.0.8010.12",
+  "version_command_exit_code": 0,
+  "playwright_browser_version": "153.0.8010.12",
+  "local_assertions": [
+    "data page navigation",
+    "DOM",
+    "click interaction",
+    "screenshot",
+    "local HTTP socket and navigation"
+  ],
+  "localhost_http_status": "PASS",
+  "remote_error_type": "TimeoutError",
+  "remote_error_summary": "Page.goto: Timeout 5000ms exceeded."
+}

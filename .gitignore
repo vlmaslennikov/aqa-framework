@@ -1,0 +1,14 @@
+# Local-only settings and generated fixtures
+.env.k6
+.env.browser
+**/.env.test
+**/.qa-perf-state.json
+**/node_modules/
+**/reports/
+**/test-results/
+**/playwright-report/
+**/.lighthouseci/
+.env
+.env.*
+!.env.*.example
+**/.env.local

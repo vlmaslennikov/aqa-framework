@@ -1,0 +1,14 @@
+node_modules/
+.env
+.env.*
+!.env.example
+.qa-resources.env
+reports/
+test-results/
+playwright-report/
+.lighthouseci/
+*.log
+.DS_Store
+
+# Local benchmark artifacts and secrets
+.qa-perf-state.json

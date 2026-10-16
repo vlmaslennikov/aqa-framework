@@ -1,0 +1,16 @@
+{
+  "package": "VDR-Product-QA",
+  "date": "2026-10-16",
+  "base_archive": "vdr-qa-framework-v0.21-independent-product-qa.zip",
+  "primary_deliverables": [
+    "SUBMISSION/README.md",
+    "SUBMISSION/01_TEST_PLAN.md",
+    "SUBMISSION/02_PRIORITIZED_FINDINGS.md",
+    "SUBMISSION/03_TESTING_APPROACH.md",
+    "SUBMISSION/04_FINAL_QA_REPORT.md",
+    "SUBMISSION/05_AI_DISCLOSURE.md",
+    "SUBMISSION/06_EVIDENCE_AND_LIMITATIONS.md"
+  ],
+  "status": "Partially verified; exact evidence in SUBMISSION/06_EVIDENCE_AND_LIMITATIONS.md",
+  "secrets_included": false
+}

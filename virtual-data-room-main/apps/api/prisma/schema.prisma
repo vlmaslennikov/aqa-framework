@@ -1,0 +1,92 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id           String     @id @default(uuid())
+  email        String     @unique
+  name         String
+  passwordHash String
+  createdAt    DateTime   @default(now())
+  dataRooms    DataRoom[]
+}
+
+model DataRoom {
+  id        String   @id @default(uuid())
+  name      String
+  ownerId   String
+  owner     User     @relation(fields: [ownerId], references: [id])
+  createdAt DateTime @default(now())
+  folders   Folder[]
+  files     File[]
+
+  @@index([ownerId, createdAt, id])
+}
+
+model Folder {
+  id         String   @id @default(uuid())
+  name       String
+  nameLower  String
+  dataRoomId String
+  dataRoom   DataRoom @relation(fields: [dataRoomId], references: [id])
+  parentId   String?
+  parent     Folder?  @relation("FolderTree", fields: [parentId], references: [id])
+  children   Folder[] @relation("FolderTree")
+  path       String
+  createdAt  DateTime @default(now())
+  files      File[]
+
+  @@index([dataRoomId, parentId])
+  @@index([dataRoomId, parentId, nameLower, id])
+  @@index([path])
+}
+
+model File {
+  id         String   @id @default(uuid())
+  name       String
+  nameLower  String
+  dataRoomId String
+  dataRoom   DataRoom @relation(fields: [dataRoomId], references: [id])
+  folderId   String?
+  folder     Folder?  @relation(fields: [folderId], references: [id])
+  size       Int
+  mimeType   String
+  storageKey String
+  uploadedAt DateTime?
+  createdAt  DateTime @default(now())
+
+  @@index([dataRoomId, folderId])
+  @@index([dataRoomId, folderId, nameLower, id])
+}
+
+enum ShareResourceType {
+  DATAROOM
+  FOLDER
+  FILE
+}
+
+enum ShareMode {
+  PUBLIC_LINK
+  USER
+}
+
+model Share {
+  id           String            @id @default(uuid())
+  resourceType ShareResourceType
+  resourceId   String
+  mode         ShareMode
+  token        String?           @unique
+  granteeEmail String?
+  createdById  String
+  revokedAt    DateTime?
+  createdAt    DateTime          @default(now())
+
+  @@index([resourceType, resourceId, createdAt, id])
+  @@index([granteeEmail, createdAt, id])
+}

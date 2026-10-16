@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-16T15:10:12.210Z",
+  "probeRuntime": "v22.16.0",
+  "sourceBasis": "SUT files included in user-supplied VDR archive; no network/external service invoked",
+  "claimsAreNotDeployedAppFindings": true,
+  "files": [
+    {
+      "path": "virtual-data-room-main/apps/api/src/files/files.service.ts",
+      "sha256": "a0173b8af279d99edefd993c948315e1608d40378154c023eb606b5128f114fc",
+      "sourceLines": 263
+    },
+    {
+      "path": "virtual-data-room-main/apps/web/src/features/data-room/components/delete-folder-dialog.tsx",
+      "sha256": "9f2c6517d0ca35e8bfc165fd8b66017f9fbecb85c15f56578a35c526b2842c9c",
+      "sourceLines": 95
+    }
+  ],
+  "observations": [
+    {
+      "id": "QA-FILE-02",
+      "description": "Actual Storage size above max accepted on upload completion",
+      "source": "virtual-data-room-main/apps/api/src/files/files.service.ts",
+      "evidenceType": "EXECUTED_UNMODIFIED_SOURCE_WITH_STUBBED_DEPENDENCIES",
+      "status": "REPRODUCED_AT_BOUNDARY",
+      "claim": "Server-side completeUpload does not re-check MAX_FILE_SIZE; real bucket bypass not established.",
+      "details": {
+        "acceptedSize": 52428801,
+        "requestCompleted": true
+      }
+    },
+    {
+      "id": "QA-NEW-01",
+      "description": "Failed signed-upload URL leaves pending file metadata and occupies name",
+      "source": "virtual-data-room-main/apps/api/src/files/files.service.ts",
+      "evidenceType": "EXECUTED_UNMODIFIED_SOURCE_WITH_STUBBED_DEPENDENCIES",
+      "status": "REPRODUCED_AT_BOUNDARY",
+      "claim": "Storage sign-URL failure after DB insert leaves a pending row; persistence and user-visible impact require isolated DB/storage validation.",
+      "details": {
+        "uploadIntentFailed": true,
+        "pendingRowsRemain": 1,
+        "compensatingDeletes": 0
+      }
+    },
+    {
+      "id": "QA-NEW-02",
+      "description": "Delete-folder confirmation remains actionable when preview request errors",
+      "source": "virtual-data-room-main/apps/web/src/features/data-room/components/delete-folder-dialog.tsx",
+      "evidenceType": "EXECUTED_UNMODIFIED_SOURCE_WITH_STUBBED_DEPENDENCIES",
+      "status": "REPRODUCED_AT_BOUNDARY",
+      "claim": "The preview failure message is shown, but Delete is enabled. This checks the real React component logic with mocked hooks; browser interaction remains unverified.",
+      "details": {
+        "previewRequestFailed": true,
+        "deleteButtonDisabled": false,
+        "deleteMutationCalledAfterClick": true
+      }
+    }
+  ]
+}

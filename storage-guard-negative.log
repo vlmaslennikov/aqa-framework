@@ -1,0 +1,5 @@
+
+> virtual-data-room-qa@0.8.0 test:qa:storage
+> RUN_MUTATION_TESTS=1 node scripts/guard-storage.mjs && RUN_MUTATION_TESTS=1 playwright test --project=chromium tests/ui/pdf-storage-lifecycle.mutation.spec.ts
+
+Storage E2E blocked: RUN_MUTATION_TESTS=1 and QA_STORAGE_E2E_ACK=DISPOSABLE_STORAGE_AND_DB_ONLY required.

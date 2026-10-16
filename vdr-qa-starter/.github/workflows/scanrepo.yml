@@ -1,0 +1,31 @@
+name: On-demand ScanRepo (public source malware signals)
+on:
+  workflow_dispatch:
+    inputs:
+      repository:
+        description: 'Public repository slug, e.g. github.com/evo9/virtual-data-room'
+        default: 'github.com/evo9/virtual-data-room'
+        required: true
+        type: string
+permissions:
+  contents: read
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Run ScanRepo without publishing results
+        env:
+          SCANREPO_REPOSITORY: ${{ inputs.repository }}
+        run: npm run security:repo
+      - name: Upload report even if the scan reports risk
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: scanrepo-report
+          path: reports/scanrepo/
+          retention-days: 7

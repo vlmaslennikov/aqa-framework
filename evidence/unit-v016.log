@@ -1,0 +1,406 @@
+TAP version 13
+# Subtest: QA .env.example is a real dotenv template, not TypeScript source
+ok 1 - QA .env.example is a real dotenv template, not TypeScript source
+  ---
+  duration_ms: 1.820253
+  type: 'test'
+  ...
+# Subtest: Make setup includes Playwright Chromium, FFmpeg and version-pinned nvm
+ok 2 - Make setup includes Playwright Chromium, FFmpeg and version-pinned nvm
+  ---
+  duration_ms: 0.814227
+  type: 'test'
+  ...
+# Subtest: Playwright mutation files ignored at collection without opt-in
+ok 3 - Playwright mutation files ignored at collection without opt-in
+  ---
+  duration_ms: 0.342636
+  type: 'test'
+  ...
+# Subtest: Cypress fixes and Vite alias are preserved
+ok 4 - Cypress fixes and Vite alias are preserved
+  ---
+  duration_ms: 0.25182
+  type: 'test'
+  ...
+# Subtest: browser wrapper derives both paths from Playwright and overrides stale env
+ok 5 - browser wrapper derives both paths from Playwright and overrides stale env
+  ---
+  duration_ms: 0.19887
+  type: 'test'
+  ...
+# Subtest: UI preflight fails without credentials (no misleading 5 skipped)
+ok 6 - UI preflight fails without credentials (no misleading 5 skipped)
+  ---
+  duration_ms: 52.30164
+  type: 'test'
+  ...
+# Subtest: Lighthouse isolated unit test explicitly disables sandbox exception
+ok 7 - Lighthouse isolated unit test explicitly disables sandbox exception
+  ---
+  duration_ms: 0.661687
+  type: 'test'
+  ...
+# Subtest: UI preflight auto-discovers all three resource IDs using read-only mock API
+ok 8 - UI preflight auto-discovers all three resource IDs using read-only mock API
+  ---
+  duration_ms: 283.464282
+  type: 'test'
+  ...
+# Subtest: Make exports a valid Lighthouse sandbox default without local env files
+ok 9 - Make exports a valid Lighthouse sandbox default without local env files
+  ---
+  duration_ms: 44.944001
+  type: 'test'
+  ...
+# Subtest: parallel setup orders Node before dependencies and web dependencies before Cypress verification
+ok 10 - parallel setup orders Node before dependencies and web dependencies before Cypress verification
+  ---
+  duration_ms: 230.901404
+  type: 'test'
+  ...
+# Subtest: Cypress receives the detected Playwright executable, including paths containing spaces
+ok 11 - Cypress receives the detected Playwright executable, including paths containing spaces
+  ---
+  duration_ms: 9.573061
+  type: 'test'
+  ...
+# Subtest: bootstrap never installs OS packages or invokes privilege elevation
+ok 12 - bootstrap never installs OS packages or invokes privilege elevation
+  ---
+  duration_ms: 0.595338
+  type: 'test'
+  ...
+# Subtest: plain make setup plan contains no system-package installation or privilege elevation
+ok 13 - plain make setup plan contains no system-package installation or privilege elevation
+  ---
+  duration_ms: 6.465353
+  type: 'test'
+  ...
+# Subtest: CLI discovery -> snapshot baseline -> diff via mock HTTP, no data mutation
+ok 14 - CLI discovery -> snapshot baseline -> diff via mock HTTP, no data mutation
+  ---
+  duration_ms: 357.187439
+  type: 'test'
+  ...
+# Subtest: read-only inventory discovers Overview.pdf in paginated room and empty folder
+ok 15 - read-only inventory discovers Overview.pdf in paginated room and empty folder
+  ---
+  duration_ms: 23.131719
+  type: 'test'
+  ...
+# Subtest: does not select ambiguous file name
+ok 16 - does not select ambiguous file name
+  ---
+  duration_ms: 1.812812
+  type: 'test'
+  ...
+# Subtest: missing PDF remains an explicit skip, not a fabricated ID
+ok 17 - missing PDF remains an explicit skip, not a fabricated ID
+  ---
+  duration_ms: 0.963351
+  type: 'test'
+  ...
+# Subtest: detects repeat pagination cursor rather than writing partial result
+ok 18 - detects repeat pagination cursor rather than writing partial result
+  ---
+  duration_ms: 0.996191
+  type: 'test'
+  ...
+# Subtest: rejects unknown remote API where credentials could leak
+ok 19 - rejects unknown remote API where credentials could leak
+  ---
+  duration_ms: 0.26538
+  type: 'test'
+  ...
+# Subtest: diff distinguishes observed addition, removal and rename, without inferring deletion cause
+ok 20 - diff distinguishes observed addition, removal and rename, without inferring deletion cause
+  ---
+  duration_ms: 0.306632
+  type: 'test'
+  ...
+# Subtest: diff refuses comparing unrelated rooms
+ok 21 - diff refuses comparing unrelated rooms
+  ---
+  duration_ms: 0.169996
+  type: 'test'
+  ...
+# Subtest: resource import fills empty .env IDs but preserves explicit ID
+ok 22 - resource import fills empty .env IDs but preserves explicit ID
+  ---
+  duration_ms: 2.795673
+  type: 'test'
+  ...
+# Subtest: Docker k6 uses official image only, no arbitrary registry
+ok 23 - Docker k6 uses official image only, no arbitrary registry
+  ---
+  duration_ms: 0.841258
+  type: 'test'
+  ...
+# Subtest: Docker arguments host-network the runner, isolate mounts and report path
+ok 24 - Docker arguments host-network the runner, isolate mounts and report path
+  ---
+  duration_ms: 0.888009
+  type: 'test'
+  ...
+# Subtest: Only allowlisted k6 environment reaches Docker; DB secrets excluded
+ok 25 - Only allowlisted k6 environment reaches Docker; DB secrets excluded
+  ---
+  duration_ms: 0.160202
+  type: 'test'
+  ...
+# Subtest: rejects external, misleading, or redirect-style target origins
+ok 26 - rejects external, misleading, or redirect-style target origins
+  ---
+  duration_ms: 0.857031
+  type: 'test'
+  ...
+# Subtest: refuses unacknowledged profile; heavy profiles need second acknowledgement
+ok 27 - refuses unacknowledged profile; heavy profiles need second acknowledgement
+  ---
+  duration_ms: 0.21286
+  type: 'test'
+  ...
+# Subtest: fixture refuses missing, non-owned and malformed credentials/IDs
+ok 28 - fixture refuses missing, non-owned and malformed credentials/IDs
+  ---
+  duration_ms: 1.694944
+  type: 'test'
+  ...
+# Subtest: each weighted endpoint is reachable and selection bounds are checked
+ok 29 - each weighted endpoint is reachable and selection bounds are checked
+  ---
+  duration_ms: 0.148824
+  type: 'test'
+  ...
+# Subtest: profile ceilings and baseline thresholds are present
+ok 30 - profile ceilings and baseline thresholds are present
+  ---
+  duration_ms: 0.443718
+  type: 'test'
+  ...
+# Subtest: runner validates local test DB, local URL, owned fixture before spawning k6
+ok 31 - runner validates local test DB, local URL, owned fixture before spawning k6
+  ---
+  duration_ms: 108.990915
+  type: 'test'
+  ...
+# Subtest: summary analyzer returns thresholds PASS only for actual threshold evidence
+ok 32 - summary analyzer returns thresholds PASS only for actual threshold evidence
+  ---
+  duration_ms: 0.671342
+  type: 'test'
+  ...
+# Subtest: analyzes the actual --summary-export shape: flat metrics and false means threshold not breached
+ok 33 - analyzes the actual --summary-export shape: flat metrics and false means threshold not breached
+  ---
+  duration_ms: 0.3985
+  type: 'test'
+  ...
+# Subtest: authenticated targets include only opted-in room/folder/file
+ok 34 - authenticated targets include only opted-in room/folder/file
+  ---
+  duration_ms: 1.739301
+  type: 'test'
+  ...
+# Subtest: malformed IDs and shared tokens are forbidden
+ok 35 - malformed IDs and shared tokens are forbidden
+  ---
+  duration_ms: 0.639654
+  type: 'test'
+  ...
+# Subtest: LHCI config uses relative puppeteer script and no ignored auth chromeFlags
+ok 36 - LHCI config uses relative puppeteer script and no ignored auth chromeFlags
+  ---
+  duration_ms: 46.913704
+  type: 'test'
+  ...
+# Subtest: route verification fails if an expected repeat is missing
+ok 37 - route verification fails if an expected repeat is missing
+  ---
+  duration_ms: 82.000079
+  type: 'test'
+  ...
+# Subtest: offline Lighthouse analyzer prints measured medians
+ok 38 - offline Lighthouse analyzer prints measured medians
+  ---
+  duration_ms: 36.712601
+  type: 'test'
+  ...
+# Subtest: default lighthouse target is loopback
+ok 39 - default lighthouse target is loopback
+  ---
+  duration_ms: 2.112734
+  type: 'test'
+  ...
+# Subtest: reject remote targets without approval
+ok 40 - reject remote targets without approval
+  ---
+  duration_ms: 0.533975
+  type: 'test'
+  ...
+# Subtest: reject URL containing embedded secrets, route, or query
+ok 41 - reject URL containing embedded secrets, route, or query
+  ---
+  duration_ms: 0.223727
+  type: 'test'
+  ...
+# Subtest: auth mode requires credentials
+ok 42 - auth mode requires credentials
+  ---
+  duration_ms: 0.161543
+  type: 'test'
+  ...
+# Subtest: config check works without npm dependencies
+ok 43 - config check works without npm dependencies
+  ---
+  duration_ms: 55.271695
+  type: 'test'
+  ...
+# Subtest: route-integrity verifier rejects redirect to login and accepts protected route
+ok 44 - route-integrity verifier rejects redirect to login and accepts protected route
+  ---
+  duration_ms: 89.580132
+  type: 'test'
+  ...
+# Subtest: no reports is an explicit failure, not a pass
+ok 45 - no reports is an explicit failure, not a pass
+  ---
+  duration_ms: 38.910949
+  type: 'test'
+  ...
+# Subtest: sandbox must be explicitly opted out of, never silently disabled
+ok 46 - sandbox must be explicitly opted out of, never silently disabled
+  ---
+  duration_ms: 0.873126
+  type: 'test'
+  ...
+# Subtest: both LHCI and Puppeteer authentication receive opt-in flags
+ok 47 - both LHCI and Puppeteer authentication receive opt-in flags
+  ---
+  duration_ms: 70.44453
+  type: 'test'
+  ...
+# Subtest: browser preflight explains sandbox failure and opt-in makes it launch
+ok 48 - browser preflight explains sandbox failure and opt-in makes it launch
+  ---
+  duration_ms: 93.049306
+  type: 'test'
+  ...
+# Subtest: Chrome failure diagnosis distinguishes sandbox from missing library
+ok 49 - Chrome failure diagnosis distinguishes sandbox from missing library
+  ---
+  duration_ms: 0.409257
+  type: 'test'
+  ...
+# Subtest: ScanRepo wrapper stores evidence and preserves exit 0
+ok 50 - ScanRepo wrapper stores evidence and preserves exit 0
+  ---
+  duration_ms: 56.914049
+  type: 'test'
+  ...
+# Subtest: ScanRepo wrapper stores evidence and preserves exit 1
+ok 51 - ScanRepo wrapper stores evidence and preserves exit 1
+  ---
+  duration_ms: 39.00405
+  type: 'test'
+  ...
+# Subtest: ScanRepo wrapper stores evidence and preserves exit 2
+ok 52 - ScanRepo wrapper stores evidence and preserves exit 2
+  ---
+  duration_ms: 54.388905
+  type: 'test'
+  ...
+# Subtest: storage E2E guard permits explicitly acknowledged loopback-only QA
+ok 53 - storage E2E guard permits explicitly acknowledged loopback-only QA
+  ---
+  duration_ms: 3.962301
+  type: 'test'
+  ...
+# Subtest: storage E2E guard rejects disabled mutation opt-in
+ok 54 - storage E2E guard rejects disabled mutation opt-in
+  ---
+  duration_ms: 0.400043
+  type: 'test'
+  ...
+# Subtest: storage E2E guard rejects public frontend
+ok 55 - storage E2E guard rejects public frontend
+  ---
+  duration_ms: 0.35133
+  type: 'test'
+  ...
+# Subtest: storage E2E guard rejects public backend
+ok 56 - storage E2E guard rejects public backend
+  ---
+  duration_ms: 0.284769
+  type: 'test'
+  ...
+# Subtest: storage E2E guard rejects missing bucket confirmation
+ok 57 - storage E2E guard rejects missing bucket confirmation
+  ---
+  duration_ms: 0.405672
+  type: 'test'
+  ...
+# Subtest: storage E2E guard allows automatic room selection for a local QA user
+ok 58 - storage E2E guard allows automatic room selection for a local QA user
+  ---
+  duration_ms: 0.466453
+  type: 'test'
+  ...
+# Subtest: storage E2E guard rejects malformed explicit room ID
+ok 59 - storage E2E guard rejects malformed explicit room ID
+  ---
+  duration_ms: 0.273072
+  type: 'test'
+  ...
+# Subtest: storage E2E selects exactly one room owned by the local QA user
+ok 60 - storage E2E selects exactly one room owned by the local QA user
+  ---
+  duration_ms: 0.548587
+  type: 'test'
+  ...
+# Subtest: storage E2E refuses ambiguous local rooms
+ok 61 - storage E2E refuses ambiguous local rooms
+  ---
+  duration_ms: 1.156113
+  type: 'test'
+  ...
+# Subtest: storage E2E guard rejects embedded credentials and non-root paths
+ok 62 - storage E2E guard rejects embedded credentials and non-root paths
+  ---
+  duration_ms: 0.809399
+  type: 'test'
+  ...
+# Subtest: blocked by default
+ok 63 - blocked by default
+  ---
+  duration_ms: 1.175682
+  type: 'test'
+  ...
+# Subtest: blocked against the public API despite explicit flags
+ok 64 - blocked against the public API despite explicit flags
+  ---
+  duration_ms: 0.205119
+  type: 'test'
+  ...
+# Subtest: requires additional opt-in for remote target
+ok 65 - requires additional opt-in for remote target
+  ---
+  duration_ms: 0.179851
+  type: 'test'
+  ...
+# Subtest: local isolated target accepted with both flags
+ok 66 - local isolated target accepted with both flags
+  ---
+  duration_ms: 1.624328
+  type: 'test'
+  ...
+1..66
+# tests 66
+# suites 0
+# pass 66
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 935.347764

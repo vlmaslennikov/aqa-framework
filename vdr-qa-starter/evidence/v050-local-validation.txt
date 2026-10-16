@@ -1,0 +1,8 @@
+Local validation (standalone QA overlay, no external network):
+- npm run test:framework: 23 passed, 0 failed
+- npm run lighthouse:check: PASS, public routes /login and /register
+- npm run lighthouse:analyze -- evidence/lighthouse-auth-user-run-2026-10-16.json: PASS
+- node --check on lighthouse-run.mjs, lighthouse-verify.mjs, lighthouse-analyze.mjs: PASS
+- Live Lighthouse auth with new resource routes: NOT EXECUTED (user's actual UUIDs/remote app not available)
+- Cypress React Component test: NOT EXECUTED (actual VDR Work branch not mounted; Cypress not installed here)
+- Playwright document E2E: NOT EXECUTED (demo unreachable from this runtime)

@@ -1,0 +1,16 @@
+{
+  "qa_framework_tests": "32 pass (executed here)",
+  "database_guard": "5 pass (executed here)",
+  "backend_integration": "not run (no isolated PostgreSQL or installed API modules)",
+  "cypress_component": "not run (no Cypress binary or installed web modules)",
+  "playwright_api_ubuntu": "9/9 pass (user log)",
+  "playwright_ui_ubuntu": "5/5 pass (user log)",
+  "lighthouse_authenticated_ubuntu": "6/6 completed (user log)",
+  "lighthouse_source": {
+    "mode": "auth",
+    "counts": {
+      "/": 3,
+      "/shared-with-me": 3
+    }
+  }
+}

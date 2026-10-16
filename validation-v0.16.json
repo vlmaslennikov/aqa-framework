@@ -1,0 +1,31 @@
+{
+  "baseline": "vdr-qa-framework-v0.15-consolidated.zip",
+  "revision": "v0.16 requirements-first",
+  "created_utc": "2026-10-16T10:57:17.547760+00:00",
+  "verified": {
+    "qa_framework_unit_tests": {
+      "passed": 66,
+      "failed": 0,
+      "evidence": "evidence/unit-v016.log"
+    },
+    "new_typescript_syntax": "PASS",
+    "jest_configs_json": "PASS",
+    "github_actions_yaml": "PASS",
+    "make_dry_run": "PASS"
+  },
+  "not_executed": {
+    "new_postgresql_integration_tests": 10,
+    "new_browser_ui_tests": 1,
+    "modified_negative_login_browser_assertions": 1,
+    "reason": "requires local product dependencies and PostgreSQL/Chromium in QA environment"
+  },
+  "previous_user_observed": {
+    "playwright_api": "9/9 passed",
+    "playwright_ui": "5/5 passed on earlier version",
+    "cypress": "8/8 passed",
+    "qa_core_integration": "7/7 passed",
+    "qa_pdf_lifecycle_integration": "4/4 passed",
+    "known_defects": "2 expected failing regressions reproduced; one mocked Storage"
+  },
+  "safety": "No mutation against deployed demo; tests isolated to local PostgreSQL test DB; real Supabase E2E remains opt-in."
+}

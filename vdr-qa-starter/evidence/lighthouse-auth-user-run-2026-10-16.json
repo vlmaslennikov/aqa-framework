@@ -1,0 +1,89 @@
+{
+  "mode": "auth",
+  "runCount": 6,
+  "counts": {
+    "/": 3,
+    "/shared-with-me": 3
+  },
+  "rows": [
+    {
+      "expected": "https://virtual-data-room-ten.vercel.app/",
+      "actual": "https://virtual-data-room-ten.vercel.app/",
+      "correctRoute": true,
+      "runtimeError": null,
+      "scores": {
+        "performance": 0.97,
+        "accessibility": 1,
+        "best-practices": 1
+      },
+      "lcpMs": 2040.7024,
+      "cls": 0
+    },
+    {
+      "expected": "https://virtual-data-room-ten.vercel.app/",
+      "actual": "https://virtual-data-room-ten.vercel.app/",
+      "correctRoute": true,
+      "runtimeError": null,
+      "scores": {
+        "performance": 0.97,
+        "accessibility": 1,
+        "best-practices": 1
+      },
+      "lcpMs": 2007.3442799999998,
+      "cls": 0
+    },
+    {
+      "expected": "https://virtual-data-room-ten.vercel.app/",
+      "actual": "https://virtual-data-room-ten.vercel.app/",
+      "correctRoute": true,
+      "runtimeError": null,
+      "scores": {
+        "performance": 0.98,
+        "accessibility": 1,
+        "best-practices": 1
+      },
+      "lcpMs": 2005.3037599999998,
+      "cls": 0
+    },
+    {
+      "expected": "https://virtual-data-room-ten.vercel.app/shared-with-me",
+      "actual": "https://virtual-data-room-ten.vercel.app/shared-with-me",
+      "correctRoute": true,
+      "runtimeError": null,
+      "scores": {
+        "performance": 0.99,
+        "accessibility": 1,
+        "best-practices": 1
+      },
+      "lcpMs": 2040.4718999999998,
+      "cls": 0
+    },
+    {
+      "expected": "https://virtual-data-room-ten.vercel.app/shared-with-me",
+      "actual": "https://virtual-data-room-ten.vercel.app/shared-with-me",
+      "correctRoute": true,
+      "runtimeError": null,
+      "scores": {
+        "performance": 0.99,
+        "accessibility": 1,
+        "best-practices": 1
+      },
+      "lcpMs": 1923.0796099999998,
+      "cls": 0
+    },
+    {
+      "expected": "https://virtual-data-room-ten.vercel.app/shared-with-me",
+      "actual": "https://virtual-data-room-ten.vercel.app/shared-with-me",
+      "correctRoute": true,
+      "runtimeError": null,
+      "scores": {
+        "performance": 0.99,
+        "accessibility": 1,
+        "best-practices": 1
+      },
+      "lcpMs": 1922.52185,
+      "cls": 0
+    }
+  ],
+  "verified": true
+}

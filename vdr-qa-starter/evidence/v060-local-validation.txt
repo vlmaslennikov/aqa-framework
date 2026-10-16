@@ -1,0 +1,214 @@
+
+> virtual-data-room-qa@0.6.0 test:framework
+> node --test tests/unit/*.test.mjs
+
+TAP version 13
+# Subtest: CLI discovery -> snapshot baseline -> diff via mock HTTP, no data mutation
+ok 1 - CLI discovery -> snapshot baseline -> diff via mock HTTP, no data mutation
+  ---
+  duration_ms: 242.162973
+  type: 'test'
+  ...
+# Subtest: read-only inventory discovers Overview.pdf in paginated room and empty folder
+ok 2 - read-only inventory discovers Overview.pdf in paginated room and empty folder
+  ---
+  duration_ms: 28.808455
+  type: 'test'
+  ...
+# Subtest: does not select ambiguous file name
+ok 3 - does not select ambiguous file name
+  ---
+  duration_ms: 2.756654
+  type: 'test'
+  ...
+# Subtest: missing PDF remains an explicit skip, not a fabricated ID
+ok 4 - missing PDF remains an explicit skip, not a fabricated ID
+  ---
+  duration_ms: 1.376684
+  type: 'test'
+  ...
+# Subtest: detects repeat pagination cursor rather than writing partial result
+ok 5 - detects repeat pagination cursor rather than writing partial result
+  ---
+  duration_ms: 1.397706
+  type: 'test'
+  ...
+# Subtest: rejects unknown remote API where credentials could leak
+ok 6 - rejects unknown remote API where credentials could leak
+  ---
+  duration_ms: 0.36507
+  type: 'test'
+  ...
+# Subtest: diff distinguishes observed addition, removal and rename, without inferring deletion cause
+ok 7 - diff distinguishes observed addition, removal and rename, without inferring deletion cause
+  ---
+  duration_ms: 0.286962
+  type: 'test'
+  ...
+# Subtest: diff refuses comparing unrelated rooms
+ok 8 - diff refuses comparing unrelated rooms
+  ---
+  duration_ms: 0.1258
+  type: 'test'
+  ...
+# Subtest: resource import fills empty .env IDs but preserves explicit ID
+ok 9 - resource import fills empty .env IDs but preserves explicit ID
+  ---
+  duration_ms: 2.680238
+  type: 'test'
+  ...
+# Subtest: authenticated targets include only opted-in room/folder/file
+ok 10 - authenticated targets include only opted-in room/folder/file
+  ---
+  duration_ms: 1.251676
+  type: 'test'
+  ...
+# Subtest: malformed IDs and shared tokens are forbidden
+ok 11 - malformed IDs and shared tokens are forbidden
+  ---
+  duration_ms: 0.446212
+  type: 'test'
+  ...
+# Subtest: LHCI config uses relative puppeteer script and no ignored auth chromeFlags
+ok 12 - LHCI config uses relative puppeteer script and no ignored auth chromeFlags
+  ---
+  duration_ms: 28.744297
+  type: 'test'
+  ...
+# Subtest: route verification fails if an expected repeat is missing
+ok 13 - route verification fails if an expected repeat is missing
+  ---
+  duration_ms: 73.459109
+  type: 'test'
+  ...
+# Subtest: offline Lighthouse analyzer prints measured medians
+ok 14 - offline Lighthouse analyzer prints measured medians
+  ---
+  duration_ms: 33.080871
+  type: 'test'
+  ...
+# Subtest: default lighthouse target is loopback
+ok 15 - default lighthouse target is loopback
+  ---
+  duration_ms: 1.76521
+  type: 'test'
+  ...
+# Subtest: reject remote targets without approval
+ok 16 - reject remote targets without approval
+  ---
+  duration_ms: 0.706344
+  type: 'test'
+  ...
+# Subtest: reject URL containing embedded secrets, route, or query
+ok 17 - reject URL containing embedded secrets, route, or query
+  ---
+  duration_ms: 0.1795
+  type: 'test'
+  ...
+# Subtest: auth mode requires credentials
+ok 18 - auth mode requires credentials
+  ---
+  duration_ms: 0.80979
+  type: 'test'
+  ...
+# Subtest: config check works without npm dependencies
+ok 19 - config check works without npm dependencies
+  ---
+  duration_ms: 57.16627
+  type: 'test'
+  ...
+# Subtest: route-integrity verifier rejects redirect to login and accepts protected route
+ok 20 - route-integrity verifier rejects redirect to login and accepts protected route
+  ---
+  duration_ms: 66.156145
+  type: 'test'
+  ...
+# Subtest: no reports is an explicit failure, not a pass
+ok 21 - no reports is an explicit failure, not a pass
+  ---
+  duration_ms: 27.608137
+  type: 'test'
+  ...
+# Subtest: sandbox must be explicitly opted out of, never silently disabled
+ok 22 - sandbox must be explicitly opted out of, never silently disabled
+  ---
+  duration_ms: 0.859345
+  type: 'test'
+  ...
+# Subtest: both LHCI and Puppeteer authentication receive opt-in flags
+ok 23 - both LHCI and Puppeteer authentication receive opt-in flags
+  ---
+  duration_ms: 67.983849
+  type: 'test'
+  ...
+# Subtest: browser preflight explains sandbox failure and opt-in makes it launch
+ok 24 - browser preflight explains sandbox failure and opt-in makes it launch
+  ---
+  duration_ms: 70.655239
+  type: 'test'
+  ...
+# Subtest: Chrome failure diagnosis distinguishes sandbox from missing library
+ok 25 - Chrome failure diagnosis distinguishes sandbox from missing library
+  ---
+  duration_ms: 0.45839
+  type: 'test'
+  ...
+# Subtest: ScanRepo wrapper stores evidence and preserves exit 0
+ok 26 - ScanRepo wrapper stores evidence and preserves exit 0
+  ---
+  duration_ms: 41.497713
+  type: 'test'
+  ...
+# Subtest: ScanRepo wrapper stores evidence and preserves exit 1
+ok 27 - ScanRepo wrapper stores evidence and preserves exit 1
+  ---
+  duration_ms: 37.438036
+  type: 'test'
+  ...
+# Subtest: ScanRepo wrapper stores evidence and preserves exit 2
+ok 28 - ScanRepo wrapper stores evidence and preserves exit 2
+  ---
+  duration_ms: 42.95579
+  type: 'test'
+  ...
+# Subtest: blocked by default
+ok 29 - blocked by default
+  ---
+  duration_ms: 0.835789
+  type: 'test'
+  ...
+# Subtest: blocked against the public API despite explicit flags
+ok 30 - blocked against the public API despite explicit flags
+  ---
+  duration_ms: 0.14552
+  type: 'test'
+  ...
+# Subtest: requires additional opt-in for remote target
+ok 31 - requires additional opt-in for remote target
+  ---
+  duration_ms: 0.111728
+  type: 'test'
+  ...
+# Subtest: local isolated target accepted with both flags
+ok 32 - local isolated target accepted with both flags
+  ---
+  duration_ms: 1.061249
+  type: 'test'
+  ...
+1..32
+# tests 32
+# suites 0
+# pass 32
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 466.004869
+
+> virtual-data-room-qa@0.6.0 lighthouse:check
+> node scripts/lighthouse-run.mjs check
+
+[lighthouse] mode=check, origin=http://127.0.0.1:4173/, chrome=auto
+Configuration OK: http://127.0.0.1:4173/login, http://127.0.0.1:4173/register
+
+Syntax checks: PASS (inventory-core, qa-inventory, qa-resource-env, lighthouse/config, lighthouse-run)

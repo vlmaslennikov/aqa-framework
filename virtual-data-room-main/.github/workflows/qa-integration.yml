@@ -1,0 +1,75 @@
+name: QA Integration (isolated database)
+on:
+  workflow_dispatch:
+jobs:
+  postgres-nest-integration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_DB: vdr_qa_test
+          POSTGRES_USER: qa
+          POSTGRES_PASSWORD: qa_local_only
+        ports:
+          - 54329:5432
+        options: >-
+          --health-cmd "pg_isready -U qa -d vdr_qa_test"
+          --health-interval 3s --health-timeout 3s --health-retries 15
+    env:
+      DATABASE_URL: postgresql://qa:qa_local_only@127.0.0.1:54329/vdr_qa_test
+      DIRECT_URL: postgresql://qa:qa_local_only@127.0.0.1:54329/vdr_qa_test
+      QA_INTEGRATION_ACK: I_OWN_THIS_LOCAL_DB
+      JWT_SECRET: qa_only_do_not_reuse_in_production_really_random_value
+      SUPABASE_URL: https://storage.invalid
+      SUPABASE_SERVICE_ROLE_KEY: qa-test-placeholder
+      SUPABASE_BUCKET: qa-test
+      CORS_ORIGIN: http://127.0.0.1:5173
+    defaults:
+      run:
+        working-directory: apps/api
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: apps/api/package-lock.json
+      - run: npm ci
+      - run: npm test -- --runInBand
+      # Database-free reproductions: PASS means known application behavior was observed, not that the defect was fixed.
+      - run: npm run test:qa:known-boundaries
+      - run: npm run test:qa:guard
+      - run: node test/qa-db-guard.cjs
+      - run: npx prisma generate
+      - run: npx prisma migrate deploy
+      - run: npm run test:qa:integration
+      - run: npm run test:qa:pdf-lifecycle
+      - run: npm run test:qa:requirements
+      - run: npm run test:qa:sharing-matrix
+
+  react-component:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    defaults:
+      run:
+        working-directory: apps/web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.16.0'
+          cache: npm
+          cache-dependency-path: apps/web/package-lock.json
+      - run: npm ci --no-audit --no-fund
+      - run: npx cypress install && npx cypress verify
+      - run: npx cypress run --component --config-file cypress.config.ts --browser chrome
+      - name: Upload screenshots on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-component-failures
+          path: apps/web/cypress/screenshots/
+          if-no-files-found: ignore
+          retention-days: 7

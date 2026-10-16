@@ -1,0 +1,64 @@
+name: VDR QA — read-only browser evidence
+
+# Deliberately manual: test credentials and selected private resource IDs are required.
+# No writes are allowed against the shared deployment.
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  framework:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.16.0'
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - run: npm run typecheck
+      - run: npm run test:framework
+  read-only-api-ui:
+    needs: framework
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      WEB_BASE_URL: ${{ vars.WEB_BASE_URL }}
+      API_BASE_URL: ${{ vars.API_BASE_URL }}
+      OWNER_EMAIL: ${{ secrets.OWNER_EMAIL }}
+      OWNER_PASSWORD: ${{ secrets.OWNER_PASSWORD }}
+      LHCI_ROOM_ID: ${{ vars.LHCI_ROOM_ID }}
+      LHCI_FOLDER_ID: ${{ vars.LHCI_FOLDER_ID }}
+      LHCI_FILE_ID: ${{ vars.LHCI_FILE_ID }}
+      RUN_MUTATION_TESTS: '0'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.16.0'
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - run: npx playwright install --with-deps chromium ffmpeg
+      - name: Require real test credentials; never green with five skipped tests
+        run: |
+          test -n "$OWNER_EMAIL" && test -n "$OWNER_PASSWORD" || {
+            echo 'Missing OWNER_EMAIL/OWNER_PASSWORD CI secrets' >&2
+            exit 2
+          }
+      - name: Discover or verify read-only resources; require all IDs
+        run: node scripts/ui-preflight.mjs
+      - name: Playwright read-only API
+        run: npm run test:api
+      - name: Playwright read-only browser
+        run: npm run test:ui
+      - name: Attach safe-to-store logs (review privacy before publication)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-evidence
+          path: |
+            playwright-report/
+            test-results/
+            reports/playwright/
+          retention-days: 7

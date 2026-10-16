@@ -1,0 +1,38 @@
+[k6] profile=smoke, origin=http://127.0.0.1:3100, seed=small, summary=/mnt/data/vdr-work-v09/vdr-qa-starter/reports/performance/smoke-2026-10-16T02-11-15-413Z.json
+MOCK ONLY - no real requests
+[k6] saved: /mnt/data/vdr-work-v09/vdr-qa-starter/reports/performance/smoke-2026-10-16T02-11-15-413Z.json
+[k6] analysis: node scripts/k6-analyze.mjs "/mnt/data/vdr-work-v09/vdr-qa-starter/reports/performance/smoke-2026-10-16T02-11-15-413Z.json"
+{
+  "totalRequests": 42,
+  "requestsPerSecond": 4.2,
+  "p50Ms": 80,
+  "p95Ms": 150,
+  "p99Ms": 250,
+  "transportErrorRate": 0,
+  "contractErrorRate": 0,
+  "checksRate": 1,
+  "thresholds": [
+    {
+      "name": "http_req_duration",
+      "threshold": "p(95)<1200",
+      "passed": true
+    },
+    {
+      "name": "http_req_failed",
+      "threshold": "rate<0.02",
+      "passed": true
+    },
+    {
+      "name": "qa_contract_errors",
+      "threshold": "rate<0.02",
+      "passed": true
+    },
+    {
+      "name": "checks",
+      "threshold": "rate>0.98",
+      "passed": true
+    }
+  ],
+  "verdict": "PASS",
+  "caveat": "HTTP GET metadata benchmark; not real PDF file transfer, not browser UX, not a capacity guarantee."
+}

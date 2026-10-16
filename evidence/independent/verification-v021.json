@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "scope": "AUTHORING_CONTAINER_ONLY",
+  "nodeVersion": "v22.16.0",
+  "qaFrameworkTests": {"passed":90,"total":90,"evidenceFile":"vdr-v0.21-framework.log"},
+  "independentBoundaryProbes": {"executed":3,"reproducedAtBoundary":3,"evidenceFile":"boundary-probes.json"},
+  "newJestInvestigation": "NOT_EXECUTED_NO_INSTALLED_BACKEND_DEPENDENCIES",
+  "newCypressInvestigation": "NOT_EXECUTED_NO_INSTALLED_BROWSER_DEPENDENCIES",
+  "postgreSQLIntegration": "NOT_EXECUTED_IN_THIS_CONTAINER",
+  "liveDeployedVDR": "NOT_TESTED_NETWORK_DNS_UNAVAILABLE",
+  "realSupabaseStorage": "NOT_TESTED_DISPOSABLE_ENV_NOT_AVAILABLE",
+  "interpretation": "Boundary reproducibility is not proof of deployed-app exploitability or browser UX."
+}

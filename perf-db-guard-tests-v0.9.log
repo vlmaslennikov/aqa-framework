@@ -1,0 +1,58 @@
+TAP version 13
+# Subtest: accepts exactly named isolated local QA database
+ok 1 - accepts exactly named isolated local QA database
+  ---
+  duration_ms: 0.861503
+  type: 'test'
+  ...
+# Subtest: rejects missing explicit consent
+ok 2 - rejects missing explicit consent
+  ---
+  duration_ms: 0.319794
+  type: 'test'
+  ...
+# Subtest: rejects external PostgreSQL service
+ok 3 - rejects external PostgreSQL service
+  ---
+  duration_ms: 0.142636
+  type: 'test'
+  ...
+# Subtest: rejects a production database name
+ok 4 - rejects a production database name
+  ---
+  duration_ms: 0.128685
+  type: 'test'
+  ...
+# Subtest: rejects differing direct and pooled DB URLs
+ok 5 - rejects differing direct and pooled DB URLs
+  ---
+  duration_ms: 0.279964
+  type: 'test'
+  ...
+# Subtest: perf seed only allows isolated QA database
+ok 6 - perf seed only allows isolated QA database
+  ---
+  duration_ms: 2.06324
+  type: 'test'
+  ...
+# Subtest: large 100k fixture requires separate acknowledgement
+ok 7 - large 100k fixture requires separate acknowledgement
+  ---
+  duration_ms: 0.325642
+  type: 'test'
+  ...
+# Subtest: rejects invalid CLI args
+ok 8 - rejects invalid CLI args
+  ---
+  duration_ms: 0.825259
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 53.875333
